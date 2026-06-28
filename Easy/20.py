@@ -26,13 +26,13 @@ class Solution:
         brackets = {")":"(", "}": "{", "]":"["}
 
         for char in s:
-            if char in brackets: #we are checking with keys
-                if stack and stack[-1] == brackets[char]:
+            if char in brackets:     #we are checking with keys
+                if stack and stack[-1] == brackets[char]:        #if stack means if the stack contains values 
                     stack.pop() 
                 else:
                     return False
             else:
-                stack.append(char)
+                stack.append(char)  # we are storing end tags that is keys 
         return len(stack) == 0
     
 
