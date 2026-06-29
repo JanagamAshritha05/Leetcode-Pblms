@@ -33,11 +33,12 @@ class Solution:
                     return False
             else:
                 stack.append(char)  # we are storing end tags that is keys 
+                
         return len(stack) == 0
     
 
 obj = Solution() 
-s = "()[]{}"
+s = "([])"
 print(obj.isValid(s))
 
 
