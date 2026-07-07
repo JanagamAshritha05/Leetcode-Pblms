@@ -15,6 +15,12 @@ Example 2:
 Input: s = "a"
 Output: 1
 Explanation: The longest palindrome that can be built is "a", whose length is 1.
+
+Easy Formula to Remember
+
+Even count (2, 4, 6...) → Use all characters.
+Odd count (1, 3, 5...) → Use the largest even part (count - 1).
+If there is at least one odd count, add 1 for the center.
  
 
 Constraints:
