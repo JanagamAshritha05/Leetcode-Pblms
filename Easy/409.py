@@ -81,4 +81,88 @@ obj = Solution()
 print(obj.longestPalindrome("a"))
 
 
+# Finding longest Palindrome 
+'''
+General Algorithm to Build the Palindrome
+
+Step 1
+
+Count the frequency of every character.
+
+Step 2
+
+For every character:
+
+Take as many pairs as possible.
+Put half of each pair on the left.
+Save one leftover odd character (if any) for the center.
+Step 3
+
+Build the palindrome:
+
+Palindrome = Left + Center + Reverse(Left)
+
+example 1: aaaabbccc
+a = 4
+b = 2
+c = 3
+
+Pairs:
+from (aa)(aa) -> aa
+from (bb) -> b 
+from (cc) -> c one c is left right! then move to center 
+
+Left:   center:  Right:
+
+aabc    c        cbaa 
+
+palindrome = aabcccbaa
+
+example 2: s = "abc"
+
+Frequency
+a = 1
+b = 1
+c = 1   No pairs only one character can be the center a or b or c so length = 1
+
+example 3: s = "aaabbb"
+
+Frequency   pairs:  
+
+a = 3       (aa)    left = ab , remaining = a, b center = a , right = ba 
+b = 3       (bb)
+
+palindrome = left + center + right = ababa
+
+'''
+
+class Solution():
+    def longest_palindrome(self, s:str):
+        freq = {}
+        for char in s:
+            freq[char] = freq.get(char, 0) + 1 
+        
+        left = ""
+        center = ""
+
+        for char in freq:
+            left += char*(freq[char]//2) 
+
+            if freq[char]%2==1 and center == "":
+                center = char 
+        
+        right = ""
+        for i in range(len(left)-1, -1, -1):
+            right += left[i]
+
+        palindrome = left + center + right 
+
+        return palindrome, len(palindrome)
+
+
+obj = Solution() 
+print(obj.longest_palindrome("abccccdd"))
+
+
+
 
