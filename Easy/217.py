@@ -111,23 +111,16 @@ class Solution:
 
         freq = {}
 
-        i = 0
-
-        while i < len(nums):
-
-            num = nums[i]
-
-            freq[num] = freq.get(num, 0) + 1
+        for num in nums:
+            freq[num] = freq.get(num , 0) + 1
 
             if freq[num] >= 2:
-                return True
-
-            i += 1
-
-        return False
+                return True 
+            
+        return False 
     
 obj = Solution()
-print(obj.containsDuplicate([1,2,2,3,4]))
+print(obj.containsDuplicate([1,1,2,3,4]))
 
 
 #

@@ -320,7 +320,6 @@ obj = Solution()
 print(obj.firstUniqChar(s))
 
 # Frequency Count(Array)
-
 class Solution:
     def firstUniqChar(self, s: str) -> int:
 
@@ -342,13 +341,4 @@ class Solution:
 s = "loveleetcode"
 obj = Solution()
 print(obj.firstUniqChar(s))
-
-
-
-
-
-
-
-
-
 
