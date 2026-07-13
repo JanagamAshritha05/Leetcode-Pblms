@@ -334,7 +334,7 @@ class Solution:
 
                 if word_freq[ch] > freq.get(ch, 0):
                     valid = False
-                    break
+                    break 
 
             if valid:
                 count += len(word)
@@ -346,3 +346,48 @@ words = ["cat","bt","hat","tree"]
 chars = "atach"
 obj = Solution() 
 print(obj.countCharacters(words, chars))
+
+#Frequency Count(Array)
+
+class Solution:
+    def countCharacters(self, words: list[str], chars: str) -> int:
+
+        # Frequency of chars
+        freq = [0] * 26
+
+        for ch in chars:
+            index = ord(ch) - ord('a')
+            freq[index] += 1
+
+        count = 0
+
+        # Check each word
+        for word in words:
+
+            # Frequency of current word
+            word_freq = [0] * 26
+
+            for ch in word:
+                index = ord(ch) - ord('a')
+                word_freq[index] += 1
+
+            valid = True
+
+            # Compare both frequency arrays
+            for i in range(26):
+
+                if word_freq[i] > freq[i]:
+                    valid = False
+                    break
+
+            if valid:
+                count += len(word)
+
+        return count
+
+
+obj = Solution()
+print(obj.countCharacters(["cat", "bt", "hat", "tree"], "atach"))
+
+
+
